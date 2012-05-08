@@ -15,8 +15,13 @@ class ProgramsController < ApplicationController
   end
   
   def update
-    program.save
-    respond_with(program)
+    if program.save
+      flash[:success] = "Program updated."
+      respond_with(program)
+    else
+      render :action => "edit"
+      flash[:error] = "Something went wrong.  Program was not updated."
+    end
   end
 
   def destroy
