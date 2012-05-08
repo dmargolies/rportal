@@ -1,10 +1,17 @@
 class ProgramsController < ApplicationController
+  respond_to :html
+
   expose(:program) 
   expose(:programs) { Program.all }
 
   def create
-    program.save
-    respond_with(program)
+    if program.save
+      flash[:success] = "Program created."
+      respond_with(program)
+    else 
+      render :action => "new"
+      flash[:error] = "Something went wrong.  Program was not created."
+    end
   end
   
   def update

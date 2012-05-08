@@ -36,7 +36,10 @@
     .container-fluid
       .row-fluid
         .span12
-          = yield
+          - flash.each do |type, msg|
+            %a.close{"data-dismiss" => "alert", "href" => "#"} x
+            = content_tag :div, msg, :class => "alert alert-#{type}" if msg.is_a?(String) 
+        = yield
       / /row
       %footer
         %h6 © Some Awesome Name 2012

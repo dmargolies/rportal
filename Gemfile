@@ -24,6 +24,7 @@ gem 'decent_exposure'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'simple_form'
 
 group :development, :test do
   gem 'pry-rails' 
