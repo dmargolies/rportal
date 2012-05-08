@@ -1,14 +1,12 @@
-%h1 Listing programs
-
-%table
+%h1 Program index
+%table.program_index.table.table-striped
   %tr
     %th Name
-    %th Start
-    %th End
+    %th Start Time
+    %th End Time
     %th
     %th
     %th
-
   - programs.each do |program|
     %tr
       %td= program.name
@@ -17,7 +15,6 @@
       %td= link_to 'Show', program
       %td= link_to 'Edit', edit_program_path(program)
       %td= link_to 'Destroy', program, :confirm => 'Are you sure?', :method => :delete
-
 %br
 
 = link_to 'New Program', new_program_path
