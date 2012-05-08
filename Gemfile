@@ -25,15 +25,15 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'devise'
 
+group :development, :test do
+  gem 'pry-rails' 
+end
+
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'cucumber-rails'
   gem 'database_cleaner'
-end
-
-group :development do
-  gem 'pry-rails' 
 end
 
 gem 'jquery-rails'
