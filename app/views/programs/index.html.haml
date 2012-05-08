@@ -12,9 +12,9 @@
       %td= program.name
       %td= program.start
       %td= program.end
-      %td= link_to 'Show', program
-      %td= link_to 'Edit', edit_program_path(program)
-      %td= link_to 'Destroy', program, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Show', program, :class => "btn btn-primary"
+      %td= link_to 'Edit', edit_program_path(program), :class => "btn btn-info"
+      %td= link_to 'Destroy', program, :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-danger"
 %br
 
 = link_to 'New Program', new_program_path

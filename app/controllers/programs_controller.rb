@@ -20,7 +20,12 @@ class ProgramsController < ApplicationController
   end
 
   def destroy
-    program.destroy
-    respond_with(program)
+    if program.destroy
+      flash[:success] = "Program deleted."
+      respond_with(program)
+    else
+      render :action => "index"
+      flash[:error] = "You cannot delete this program."
+    end
   end
 end
