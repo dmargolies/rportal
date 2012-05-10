@@ -1,19 +1,23 @@
+= content_for :title do
+  Program Index
 %h1 Program index
-= link_to 'New Program', new_program_path, :class => "btn btn-success pull-right"
-%table.program_index.table.table-striped
-  %tr
-    %th Name
-    %th Start Time
-    %th End Time
-    %th
-    %th
-    %th
-  - programs.each do |program|
+%table#program_index.table.table-striped
+  %thead
     %tr
-      %td= program.name
-      %td= program.start
-      %td= program.end
-      %td= link_to 'Show', program, :class => "btn btn-primary"
-      %td= link_to 'Edit', edit_program_path(program), :class => "btn btn-info"
-      %td= link_to 'Destroy', program, :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-danger"
+      %th Name
+      %th Start Time
+      %th End Time
+      %th
+      %th
+      %th
+  %tbody
+    - programs.each do |program|
+      %tr
+        %td= program.name
+        %td= program.start
+        %td= program.end
+        %td= link_to 'Show', program, :class => "btn btn-primary"
+        %td= link_to 'Edit', edit_program_path(program), :class => "btn btn-info" if user_authorized?
+        %td= link_to 'Destroy', program, :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-danger" if user_authorized?
 %br
+= link_to 'New Program', new_program_path

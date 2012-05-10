@@ -18,6 +18,7 @@ group :assets do
   # gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'jquery-datatables-rails'
 end
 
 gem 'decent_exposure'
@@ -28,6 +29,7 @@ gem 'simple_form'
 
 group :development, :test do
   gem 'pry-rails' 
+  gem 'launchy'
 end
 
 group :test do
