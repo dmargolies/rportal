@@ -4,12 +4,15 @@
   %b Name:
   = program.name
 %p
-  %b Start:
+  %b Start Time:
   = program.start
 %p
-  %b End:
+  %b End Time:
   = program.end
 
-= link_to 'Edit', edit_program_path(program)
-\|
-= link_to 'Back', programs_path
+
+= link_to 'Back', programs_path, class: 'btn btn-small btn-inverse'
+- if user_signed_in? && current_user.can_edit_program?(program) 
+  = link_to 'Edit', edit_program_path(program), class: 'btn btn-small btn-inverse' 
+= link_to 'Playlists', '#', class: 'btn btn-small btn-primary'
+

@@ -11,3 +11,7 @@ Given /^the following program records$/ do |table|
     Program.create(:name => hash[:name], :start => hash[:start], :end => hash[:end])
   end
 end
+
+Then /^I should see the program's name$/ do
+  page.should have_content "Some Program"
+end
